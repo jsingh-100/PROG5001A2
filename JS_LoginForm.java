@@ -13,21 +13,22 @@ import java.awt.event.*;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.awt.EventQueue;
  
 /**
  * This program demonstrates how to use JFrame and LayoutManager.
  * @author Vinh Bui
  */
 
-public class LoginForm extends JFrame implements ActionListener {
+public class JS_LoginForm extends JFrame implements ActionListener {
     private JLabel labelUsername;
     private JLabel labelPassword;   
     private JTextField textUsername;
     private JPasswordField fieldPassword;
     private JButton buttonLogin;
-    private PlayerList playerList;
+    private JS_PlayerList playerList;
  
-    public LoginForm() {
+    public JS_LoginForm() {
         super("Login Form");
         labelUsername = new JLabel("Enter username: ");
         labelPassword = new JLabel("Enter password: ");   
@@ -76,7 +77,7 @@ public class LoginForm extends JFrame implements ActionListener {
         buttonLogin.addActionListener(this);
         
         //instantiate the playerList
-        playerList = new PlayerList();
+        playerList = new JS_PlayerList();
         try {
             readPlayerFromFile("players.txt");
         } catch (FileNotFoundException e) {
@@ -89,6 +90,12 @@ public class LoginForm extends JFrame implements ActionListener {
         String password = fieldPassword.getText();
         if (playerList.matchPlayer(username, password)) {
             JOptionPane.showMessageDialog(this, username + ": login successfully");
+            this.setVisible(false);
+            EventQueue.invokeLater(() -> {
+            //create the game with a game title as follow: The Snake Game (C) Your_Name
+            JFrame sgame = new JS_SnakeGame("The Snake Game (C) Jaspreet");
+            sgame.setVisible(true);
+        });
         } else {
             JOptionPane.showMessageDialog(this, "wrong username or password");
         }
@@ -116,7 +123,7 @@ public class LoginForm extends JFrame implements ActionListener {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new LoginForm().setVisible(true);
+                new JS_LoginForm().setVisible(true);
             }
         });
     }

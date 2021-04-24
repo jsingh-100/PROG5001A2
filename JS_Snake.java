@@ -1,15 +1,15 @@
 /**
  * Write a description of class Snake here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jaspreet
+ * @version 1.0.0
  */
-public class Snake
+public class JS_Snake
 {
     /**
      * Constructor for objects of class Snake
      */
-    public Snake() {
+    public JS_Snake() {
         // initialise instance variables        
     }
 
