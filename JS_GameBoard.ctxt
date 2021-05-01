@@ -2,6 +2,13 @@
 comment0.target=JS_GameBoard
 comment1.params=
 comment1.target=JS_GameBoard()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ JS_GameBoard\r\n
 comment2.params=g
 comment2.target=void\ paintComponent(java.awt.Graphics)
-numComments=3
+comment3.params=
+comment3.target=void\ showWinningGUI()
+comment3.text=\r\n\ Method\ to\ show\ winning\ GUI\r\n
+comment4.params=
+comment4.target=void\ showLosingGUI()
+comment4.text=\r\n\ Method\ to\ show\ losing\ GUI\r\n
+numComments=5
