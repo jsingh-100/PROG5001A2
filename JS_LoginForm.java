@@ -1,23 +1,24 @@
-import java.awt.GridBagLayout;
+import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import javax.swing.JOptionPane;
-import java.awt.event.*;
-import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.awt.EventQueue;
  
 /**
  * This program demonstrates how to use JFrame and LayoutManager.
- * @author Vinh Bui
+ * @author Jaspreet
  */
 
 public class JS_LoginForm extends JFrame implements ActionListener {
@@ -119,12 +120,4 @@ public class JS_LoginForm extends JFrame implements ActionListener {
         }      
     }
     
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new JS_LoginForm().setVisible(true);
-            }
-        });
-    }
 }

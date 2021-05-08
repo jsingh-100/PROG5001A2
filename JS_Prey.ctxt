@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=JS_Prey
 comment0.text=\r\n\ Class\ Prey\ represents\ any\ prey\ object.\r\n\r\n\ @author\ Jaspreet\r\n\ @version\ 1.0.0\r\n
-comment1.params=
-comment1.target=JS_Prey()
+comment1.params=g
+comment1.target=JS_Prey(java.awt.Graphics)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ JS_Prey\r\n
 comment2.params=maxX\ maxY\ minX\ minY
 comment2.target=void\ setRandomPosition(int,\ int,\ int,\ int)
