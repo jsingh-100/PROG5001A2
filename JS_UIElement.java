@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 public abstract class JS_UIElement extends JFrame
 {
 
-    protected int xPosition, yPosition;
+	protected int xPosition, yPosition;
     protected int xSize=25, ySize=25;
     
     protected String imageName;

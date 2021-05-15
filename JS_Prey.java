@@ -11,17 +11,25 @@ import javax.swing.ImageIcon;
  * @version 1.0.0
  */
 public class JS_Prey extends JS_UIElement {
+    
+    public static boolean hasOne=false;
+    public static int x;
+    public static int y;
     /**
      * Constructor for objects of class JS_Prey
      */
     public JS_Prey(Graphics g)
     {
+        if (!hasOne) {
         setRandomPosition(300, 300, 0, 0);
+        hasOne=true;
+        }
         this.g = g;
         imageName = "prey.jpg";
         ImageIcon icon = new ImageIcon("resources/"+imageName);
         Image image = icon.getImage();
-        g.drawImage(image, xPosition, yPosition,xSize,ySize, this);
+        g.drawImage(image, x, y,xSize,ySize, this);
+
     }
     
     /**
@@ -34,8 +42,8 @@ public class JS_Prey extends JS_UIElement {
      * 
      */
     private void setRandomPosition(int maxX,int maxY,int minX,int minY){
-        xPosition = ThreadLocalRandom.current().nextInt(minX, maxX + 1);
-        yPosition = ThreadLocalRandom.current().nextInt(minY, maxY + 1);
+        x = ThreadLocalRandom.current().nextInt(minX, maxX + 1);
+        y = ThreadLocalRandom.current().nextInt(minY, maxY + 1);
     }
     
     /**

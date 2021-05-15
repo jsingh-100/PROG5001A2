@@ -1,5 +1,6 @@
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.Iterator;
 
 import javax.swing.ImageIcon;
 
@@ -9,31 +10,44 @@ import javax.swing.ImageIcon;
  * @author Jaspreet
  * @version 1.0.1
  */
+
 public class JS_Snake extends JS_UIElement
 {
-    
     private int length;
     private float speed;
-    private Image image;
+    JS_PointArray snakeArray;
+    Image headImg;
+    Image tailImg;
     
     /**
      * Constructor for objects of class Snake
      */
     public JS_Snake(Graphics g) {
         // Initialize instance variables  
-        length = 1;
-        speed = 1;
-        xPosition = 150;
-        yPosition = 150;
+
+        if (snakeArray==null) {
+            length = 4;
+            xPosition = 150;
+            yPosition = 150;
+            snakeArray = new JS_PointArray(xPosition,yPosition,length,xSize,ySize);
+        }
+        
         this.g = g;
         imageName = "snake_head.png";
         ImageIcon icon = new ImageIcon("resources/"+imageName);
-        Image image = icon.getImage();
-        g.drawImage(image, xPosition, yPosition,xSize,ySize, this);
+        headImg= icon.getImage();
+        ImageIcon tailIcon = new ImageIcon("resources/snake_tail.png");
+        tailImg = tailIcon.getImage();
         for (int i = 0; i < length; i++) {
-            ImageIcon tailIcon = new ImageIcon("resources/snake_tail.png");
-            Image tail = tailIcon.getImage();
-            g.drawImage(tail, xPosition, yPosition+ySize,xSize,ySize, this);
+            String bonePos= snakeArray.getPositions().get(i);
+            int x = Integer.parseInt(bonePos.split(",")[0]);
+            int y = Integer.parseInt(bonePos.split(",")[1]);
+            if (i==0) {
+                g.drawImage(headImg, x, y,xSize,ySize, this);
+            }else {
+                 g.drawImage(tailImg, x, y,xSize,ySize, this);
+            }
+            
         }
     }
     
@@ -89,6 +103,32 @@ public class JS_Snake extends JS_UIElement
      * @param  direction the movement direction (left, right, up, down)
      */
     public void move(String direction) {
+        xPosition=Integer.parseInt(snakeArray.getPositions().get(0).split(",")[0]);
+        yPosition=Integer.parseInt(snakeArray.getPositions().get(0).split(",")[1]);
+        switch (direction) {
+        case "up": 
+            yPosition-=ySize;
+            break;
+        case "down":
+            yPosition+=ySize;
+            break;
+        case "left":
+            xPosition-=xSize;
+            break;
+        case "right":
+            xPosition+=xSize;
+            break;
+        default:
+            throw new IllegalArgumentException("Unexpected value: " + direction);
+        }
+        
+        
+        for (int i = length-1; i > 0; i--) {
+            snakeArray.getPositions().set(i, snakeArray.getPositions().get(i-1));
+        }
+        snakeArray.getPositions().set(0, xPosition+","+yPosition);
+        
+        
     }
 
     /**
@@ -99,5 +139,6 @@ public class JS_Snake extends JS_UIElement
     public boolean checkCollision() {
         return false;
     }
+    
 
 }
