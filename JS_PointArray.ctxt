@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=JS_PointArray
+comment0.text=\r\n\ \r\n\ @author\ Jaspreet\r\n\ @version\ 1.0.1\r\n
+comment1.params=xPosition\ yPosition\ length\ xSize\ ySize
+comment1.target=JS_PointArray(int,\ int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=java.util.List\ getPositions()
+comment2.text=\r\n\ get\ x,y\ locations\ of\ each\ snake\ bone\r\n\ \r\n\ @return\ positions\r\n
+numComments=3

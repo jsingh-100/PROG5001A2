@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 public abstract class JS_UIElement extends JFrame
 {
 
-	protected int xPosition, yPosition;
+    protected int xPosition, yPosition;
     protected int xSize=25, ySize=25;
     
     protected String imageName;
@@ -94,4 +94,35 @@ public abstract class JS_UIElement extends JFrame
         return this.imageName;
 
     }
+
+    /**
+     * @return the xSize
+     */
+    public int getxSize() {
+        return xSize;
+    }
+
+    /**
+     * @param xSize the xSize to set
+     */
+    public void setxSize(int xSize) {
+        this.xSize = xSize;
+    }
+
+    /**
+     * @return the ySize
+     */
+    public int getySize() {
+        return ySize;
+    }
+
+    /**
+     * @param ySize the ySize to set
+     */
+    public void setySize(int ySize) {
+        this.ySize = ySize;
+    }
+    
+    
+    
 }

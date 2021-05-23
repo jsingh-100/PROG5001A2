@@ -24,5 +24,5 @@ comment7.target=void\ move(java.lang.String)
 comment7.text=\r\n\ Method\ to\ change\ the\ x\ or\ y\ position\ of\ the\ snake\r\n\r\n\ @param\ \ direction\ the\ movement\ direction\ (left,\ right,\ up,\ down)\r\n
 comment8.params=
 comment8.target=boolean\ checkCollision()
-comment8.text=\r\n\ Checks\ if\ snake\ collided\ on\ walls\ or\ its\ body.\r\n\ \r\n\ @return\ True\ if\ collision\ adentified,\ False\ otherwise.\r\n
+comment8.text=\r\n\ Checks\ if\ snake\ collided\ on\ walls\ or\ its\ body.\r\n\ \r\n\ @return\ True\ if\ collision\ identified,\ False\ otherwise.\r\n
 numComments=9

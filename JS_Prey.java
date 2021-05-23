@@ -21,7 +21,7 @@ public class JS_Prey extends JS_UIElement {
     public JS_Prey(Graphics g)
     {
         if (!hasOne) {
-        setRandomPosition(300, 300, 0, 0);
+        setRandomPosition(300-xSize, 300-ySize, xSize, ySize);
         hasOne=true;
         }
         this.g = g;
@@ -49,5 +49,10 @@ public class JS_Prey extends JS_UIElement {
     /**
      * Method to destroy the current prey
      */
-    public void destroy(){}
+    public void destroy(){
+        setRandomPosition(300-xSize, 300-ySize, xSize, ySize);
+    }
+    
+
+    
 }

@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 
 public class JS_Snake extends JS_UIElement
 {
-    private int length;
+    private static int length;
     private float speed;
     JS_PointArray snakeArray;
     Image headImg;
@@ -30,6 +30,7 @@ public class JS_Snake extends JS_UIElement
             xPosition = 150;
             yPosition = 150;
             snakeArray = new JS_PointArray(xPosition,yPosition,length,xSize,ySize);
+            length = snakeArray.positions.size();
         }
         
         this.g = g;
@@ -47,6 +48,7 @@ public class JS_Snake extends JS_UIElement
             }else {
                  g.drawImage(tailImg, x, y,xSize,ySize, this);
             }
+            
             
         }
     }
@@ -76,7 +78,8 @@ public class JS_Snake extends JS_UIElement
      * @return length + amount
      */
     public void increaseLength(int amount) {
-
+        length+=amount;
+        snakeArray.positions.add(snakeArray.positions.get(snakeArray.positions.size()-1)) ;
     }
 
     /**
@@ -122,7 +125,6 @@ public class JS_Snake extends JS_UIElement
             throw new IllegalArgumentException("Unexpected value: " + direction);
         }
         
-        
         for (int i = length-1; i > 0; i--) {
             snakeArray.getPositions().set(i, snakeArray.getPositions().get(i-1));
         }
@@ -134,10 +136,28 @@ public class JS_Snake extends JS_UIElement
     /**
      * Checks if snake collided on walls or its body.
      * 
-     * @return True if collision adentified, False otherwise.
+     * @return True if collision identified, False otherwise.
      */
     public boolean checkCollision() {
+        
+        int[] x= new int[snakeArray.getPositions().size()]  ;
+        int[] y= new int[snakeArray.getPositions().size()]  ;
+        for (int i = 0; i < y.length; i++) {
+            x[i]=Integer.parseInt( JS_PointArray.positions.get(i).split(",")[0]);
+            y[i]=Integer.parseInt( JS_PointArray.positions.get(i).split(",")[1]);
+        }
+        for (int z = length-1; z > 0; z--) {
+            
+            if ((length > 4) && (x[0] == x[z]) && (y[0] == y[z])) {
+                return true;
+            }
+        }
+        
         return false;
+        
+        
+        
+        
     }
     
 
